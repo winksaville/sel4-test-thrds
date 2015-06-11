@@ -12,6 +12,6 @@ make ia32_simulation_test_thrds_defconfig
 ```
 To run this app:
 ```
-make simulate-test_thrds-ia32
+make simulate-test-thrds-ia32
 ```
 See Makefile for other targets.

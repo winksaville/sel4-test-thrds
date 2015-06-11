@@ -8,10 +8,10 @@
 # @TAG(NICTA_BSD)
 #
 
-apps-$(CONFIG_APP_TEST_THRDS)        += test_thrds
+apps-$(CONFIG_APP_TEST_THRDS)        += test-thrds
 
 # list of libraries the app needs to build
-test_thrds-y = common libsel4 libmuslc libsel4vka libcpio libelf \
+test-thrds-y = common libsel4 libmuslc libsel4vka libcpio libelf \
   libsel4thrds \
   libsel4allocman \
   libsel4platsupport libsel4platsupport libsel4muslcsys \
@@ -19,9 +19,9 @@ test_thrds-y = common libsel4 libmuslc libsel4vka libcpio libelf \
 
 # set up correct simple lib for our kernel
 ifdef CONFIG_KERNEL_STABLE
-test_thrds-$(CONFIG_LIB_SEL4_SIMPLE_STABLE) += libsel4simple-stable
+test-thrds-$(CONFIG_LIB_SEL4_SIMPLE_STABLE) += libsel4simple-stable
 else
-test_thrds-$(CONFIG_LIB_SEL4_SIMPLE_DEFAULT) += libsel4simple-default
+test-thrds-$(CONFIG_LIB_SEL4_SIMPLE_DEFAULT) += libsel4simple-default
 endif
 
-test_thrds: kernel_elf $(test_thrds-y)
+test-thrds: kernel_elf $(test-thrds-y)
