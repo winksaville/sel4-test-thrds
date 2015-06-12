@@ -44,7 +44,9 @@
 
 #include <sel4thrds/thrds.h>
 
-struct env {
+#include "tests.h"
+
+typedef struct env {
     /* An initialised vka that may be used by the test. */
     vka_t vka;
     /* virtual memory management interface */
@@ -62,9 +64,7 @@ struct env {
 #endif
     /* extra cap to the init data frame for mapping into the remote vspace */
     seL4_CPtr init_frame_cap_copy;
-};
-
-typedef struct env *env_t;
+} env_t;
 
 /* dimensions of virtual memory for the allocator to use */
 #define ALLOCATOR_VIRTUAL_POOL_SIZE ((1 << seL4_PageBits) * 100)
@@ -77,11 +77,11 @@ static char allocator_mem_pool[ALLOCATOR_STATIC_POOL_SIZE];
 static sel4utils_alloc_data_t data;
 
 /* environment encapsulating allocation interfaces etc */
-static struct env env;
+static env_t env;
 
 /* initialise our runtime environment */
 static void
-init_env(env_t env)
+init_env(env_t *env)
 {
     allocman_t *allocman;
     UNUSED reservation_t virtual_reservation;
@@ -111,7 +111,7 @@ init_env(env_t env)
 
 
 static void
-init_timer_caps(env_t env)
+init_timer_caps(env_t *env)
 {
     /* get the timer irq cap */
     seL4_CPtr cap;
@@ -147,8 +147,7 @@ void *main_continued(void *arg UNUSED)
     init_timer_caps(&env);
 
     /* Code to run */
-    printf("test thrds ****** \n");
-    thrd_doNothing();
+    test_thrd_doNothing();
 
     printf("main_continued:-\n\n");
     return NULL;
