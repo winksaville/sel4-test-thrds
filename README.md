@@ -7,6 +7,7 @@ To see available make parameters:
 make help
 ```
 To build this app:
+(Note: do NOT "make menuconfig" first its a bad configuration)
 ```
 make ia32_simulation_test_thrds_defconfig
 ```
