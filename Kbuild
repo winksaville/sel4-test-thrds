@@ -12,10 +12,10 @@ apps-$(CONFIG_APP_TEST_THRDS)        += test-thrds
 
 # list of libraries the app needs to build
 test-thrds-y = common libsel4 libmuslc libsel4vka libcpio libelf \
-  libsel4thrds \
   libsel4allocman \
   libsel4platsupport libsel4platsupport libsel4muslcsys \
-  libsel4simple libsel4vspace libsel4utils libutils
+  libsel4simple libsel4vspace libsel4utils libutils \
+  libsel4thrds \
 
 # set up correct simple lib for our kernel
 ifdef CONFIG_KERNEL_STABLE

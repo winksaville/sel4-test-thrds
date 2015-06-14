@@ -27,9 +27,9 @@ ASMFILES := $(patsubst $(SOURCE_DIR)/%,%,$(wildcard $(SOURCE_DIR)/src/arch/${ARC
 ASMFILES += $(patsubst $(SOURCE_DIR)/%,%,$(wildcard $(SOURCE_DIR)/src/plat/${PLAT}/*.S))
 
 # Libraries required to build the target
-LIBS = c sel4 cpio elf sel4muslcsys sel4vka sel4thrds sel4allocman \
+LIBS = c sel4 cpio elf sel4muslcsys sel4vka sel4allocman \
        platsupport sel4platsupport sel4vspace \
-       sel4utils sel4simple utils
+       sel4utils sel4simple utils sel4thrds
 ifdef CONFIG_KERNEL_STABLE
 LIBS += sel4simple-stable
 else
