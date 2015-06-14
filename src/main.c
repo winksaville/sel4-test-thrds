@@ -147,7 +147,7 @@ void *main_continued(void *arg UNUSED)
     init_timer_caps(&env);
 
     /* Code to run */
-    test_thrd_doNothing();
+    test_thrd_initialize();
 
     printf("main_continued:-\n\n");
     return NULL;

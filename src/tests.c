@@ -9,17 +9,20 @@
 #include <stdio.h>
 #include <sel4thrds/thrds.h>
 
-void test_thrd_doNothing() {
-  printf("test_thrd_doNothing\n");
-  thrd_doNothing();
+void test_thrd_initialize() {
+  printf("test_thrd_initialize:+\n");
+  thrd_initialize();
+  printf("test_thrd_initialize:-\n");
 }
 
 void test_configure_cleanup() {
   thrd_env_t env;
   thrd_t thread;
 
-  printf("test_configure_cleanup \n");
+  printf("test_configure_cleanup:+\n");
 
   thrd_configure(&env, &thread);
   thrd_cleanup(&env, &thread);
+
+  printf("test_configure_cleanup:-\n");
 }

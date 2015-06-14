@@ -9,7 +9,7 @@
 #ifndef __TESTS_H
 #define __TESTS_H
 
-extern void test_thrd_doNothing();
+extern void test_thrd_initialize();
 extern void test_configure_cleanup();
 
 #endif
